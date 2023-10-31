@@ -1,0 +1,79 @@
+.subadmin{
+	max-width:504px;
+	margin:0 auto;
+	&__copy{
+		display: flex;
+		align-items: center;
+		font-size: 12px;
+		font-weight: 500;
+		margin-bottom: 37px;
+		cursor:pointer;
+		svg{
+			margin-right: 8px;
+		}
+	}
+	&__form{
+		button{
+			width:100%;
+		}
+	}
+	&__products{
+		&-checboxes{
+			flex-direction: column;
+			justify-content: space-between;
+			label{
+				padding-left: 0;
+				display: block;
+				justify-content: space-between;
+				width:100%;
+				font-size: 16px;
+				font-weight: 600;
+				span{
+					svg{
+						display: none;
+					}
+					right:0;
+					left:auto;
+					display:flex;
+					align-items: center;
+					justify-content: center;
+
+				}
+			}
+		}
+		&-header{
+			padding-bottom: 5px;
+			display: flex;
+			justify-content: space-between;
+			font-weight: 500;
+			font-size: 12px;
+			border-bottom: 1px solid #A0A0A0;
+		}
+	}
+	&__label{
+		font-size: 10px;
+	}
+	&__header{
+		text-align: center;
+		margin-bottom: 65px;
+	}
+	&__title{
+		font-size: 24px;
+		font-weight: 600;
+		color:$dark-blue;
+		margin-bottom: 10px;
+		span{
+			color:$primary;
+		}
+	}
+	&__subtitle{
+		font-size: 16px;
+		font-weight: 500;
+	}
+}
+.subadmin__products-checkbox input:checked + .checkmark{
+background-color: #1FAF38;
+}
+.subadmin__products-checkbox input:checked + .checkmark svg{
+	display: block;
+}

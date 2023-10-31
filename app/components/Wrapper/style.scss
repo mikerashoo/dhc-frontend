@@ -1,0 +1,32 @@
+.main__wrapper {
+	display: flex;
+//   display: flex;
+height: 100vh;
+//   flex-direction: column;
+//   gap: 48px;
+//   position: relative;
+//   flex: 1 0;
+&-width{
+	width:15%;
+	padding: 35px 35px 0px 37px;
+
+	float: left; /* Закрепить слева */
+
+}
+}
+
+.main__container {
+  width:100%;
+  margin-left: 300px;
+  display: flex;
+  float: left;
+
+  flex-direction: column;
+
+}
+.main__content{
+	padding: 0 30px;
+}
+.nopadding{
+	padding:0!important;
+}

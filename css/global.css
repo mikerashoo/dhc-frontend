@@ -1,0 +1,54 @@
+html,
+body {
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  height: 100%;
+  font-family: "__Montserrat_703af4", "__Montserrat_Fallback_703af4";
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  font-family: "__Montserrat_703af4", "__Montserrat_Fallback_703af4";
+  font-weight: 400;
+  position: relative;
+  min-height: 100vh;
+  background: #F5F5F5;
+  color: var(--dark-blue, #061426);
+  overflow: hidden;
+}
+
+button:focus {
+  outline: 1px transparent solid;
+}
+
+p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.2;
+  margin: 0;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+ul {
+  padding: 0;
+}
+
+svg {
+  fill-opacity: 1;
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 0;
+}
+
+.section {
+  padding-top: 30px;
+}

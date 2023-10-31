@@ -1,0 +1,91 @@
+html,
+body {
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  height: 100%;
+  font-family: '__Montserrat_703af4', '__Montserrat_Fallback_703af4';
+
+}
+
+$bg-color: #F5F5F5;;
+$primary: rgba(219,177,127,100%);
+$dark: var(--dark-blue, #061426);
+$green:rgba(31, 175, 56, 1);
+$white: #fff;
+$accent: #c96332;
+$warn: #d73d3d;
+
+$gray: #BFBFBF;
+$gray-light: #e4e7eb;
+$gray-dark: #1b1b1b;
+$dark-blue:#061426;
+
+$light-black: rgba(54, 70, 87, 0.31);
+$stroke: #eef0f4;
+$gray-border: rgba(217, 217, 217, 0.16);
+
+// BREAKPOINTS
+
+$extra_small: 400px;
+$small: 576px;
+$medium: 768px;
+$large: 992px;
+$extra_large: 1200px;
+$extra_extra_large: 1500px;
+
+
+// UTILS 
+$transition: all 0.3s ease-out;
+$dropdown-index: 5;
+$modal-index: 10;
+$shadow: 0px 18px 30px rgba(0, 0, 0, 0.1);
+
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  font-family: '__Montserrat_703af4', '__Montserrat_Fallback_703af4';
+  font-weight: 400;
+  position: relative;
+  min-height: 100vh;
+  background: $bg-color;
+  color: $dark;
+  overflow: hidden;
+}
+
+button:focus {
+  outline: 1px transparent solid;
+}
+
+p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.2;
+ margin:0;
+}
+h1 {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+ul {
+  padding:0;}
+// section {
+//   padding: 40px 0;
+//   display: flex;
+//   flex-direction: column;
+//   @media (max-width: $extra_small) {
+//     padding: 20px 0;
+//   }
+// }
+
+svg {
+  fill-opacity: 1;
+}
+h1,h2,h3,h4,h5{
+	margin:0;
+}
+.section{
+	padding-top:30px;
+}

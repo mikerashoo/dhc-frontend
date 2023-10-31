@@ -1,0 +1,31 @@
+.header{
+	display: flex;
+	justify-content: space-between;
+padding:25px 30px;
+	background-color: #fff;
+	&__profile{
+		display: none;
+		background-color: #fff;
+		border-radius: 6px;
+		position: absolute;
+		bottom:-80px;
+		padding:20px 13px;
+		width:195px;
+		box-sizing: border-box;
+		left:-110px;
+		z-index: 100;
+		span{
+			cursor: pointer;
+		}
+		&-active{
+			display: block;
+		}
+	}
+	&__right{
+		span{
+			&:not(:last-child){
+				margin-right: 40px;
+			}
+		}
+	}
+}

@@ -1,0 +1,155 @@
+.date-col-input {
+  display: flex;
+  flex-direction: column;
+}
+.datePicker {
+  font-weight: normal;
+  font-size: 14px;
+  width: fit-content;
+  color: $dark;
+  &__wrapper {
+    position: relative;
+	// max-width:159px;
+
+    & .react-datepicker-popper {
+      z-index: 4;
+    }
+    & input {
+      width: 96%;
+      height: 100%;
+	  font-size: 12px!important;
+	  font-family: '__Montserrat_703af4', '__Montserrat_Fallback_703af4'!important;
+      padding: 12px 15px;
+	  border: 1px solid #A0A0A0!important;      
+	  border-radius: 5px;
+      &::placeholder {
+        color: #A0A0A0;
+		font-family: '__Montserrat_703af4', '__Montserrat_Fallback_703af4'!important;
+
+      }
+    }
+    & .rounded-date {
+      border-radius: 53px;
+    }
+    & .accent-border {
+      border: 1px solid $accent;
+    }
+    & .primary-border {
+      border: 1px solid $primary;
+    }
+    &-rounded {
+      & input {
+        border-radius: 53px !important;
+      }
+    }
+  }
+  &--svg {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 25px;
+
+  }
+}
+.react-datepicker {
+  padding: 15px 10px !important;
+
+  // border: none !important;
+  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) !important;
+  &__input-container {
+    & input {
+      border-radius: 6px;
+	  font-weight: 400;
+	  font-size:14px;
+    }
+  }
+  &__triangle {
+    display: none;
+  }
+  &__header {
+    background-color: $white !important;
+    color: $dark !important;
+    border-bottom: none !important;
+  }
+  &__current-month {
+    color: $dark !important;
+    padding-bottom: 20px !important;
+    border-bottom: 1px solid $gray-light;
+  }
+  &__day {
+    color: $dark !important;
+    font-size: 16px !important;
+    margin: 4px !important;
+    width: 35px !important;
+    line-height: 35px !important;
+
+    &--disabled {
+      color: #ccc !important;
+    }
+    &--in-range {
+      background-color: $accent !important;
+      color: $white !important;
+    }
+    &--range-end {
+      background-color: $primary !important;
+      color: $white !important;
+    }
+  }
+  &__day-names {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0 7px !important;
+  }
+  &__day-name {
+    color: $gray !important;
+  }
+  &__day--selected,
+  &__day--keyboard-selected {
+    background-color: $primary !important;
+    color: $white !important;
+    font-weight: 600 !important;
+  }
+  &__navigation {
+    border-radius: 50% !important;
+    margin-top: 16px !important;
+    position: relative;
+    &:hover {
+      background-color: $gray-light !important;
+    }
+    & span {
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+    }
+    &-icon--previous {
+      right: 0px !important;
+    }
+    &-icon--next {
+      left: 1px !important;
+    }
+
+    &-icon::before {
+      border-width: 2px 2px 0 0 !important;
+      border-color: $gray !important;
+    }
+    &--previous {
+      margin-left: 10px;
+    }
+    &--next {
+      margin-right: 10px;
+    }
+  }
+}
+
+.react-datepicker__year-dropdown-container {
+  margin: 5px !important;
+}
+.react-datepicker__year-dropdown {
+  background: $white !important;
+  width: 100px !important;
+  @include VerticalScroll;
+  & .react-datepicker__year-option:hover {
+    background-color: $accent !important;
+    color: $white !important;
+  }
+}

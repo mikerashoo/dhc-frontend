@@ -1,0 +1,295 @@
+.project{
+	&__top{
+		display: flex;
+		align-items: center;
+		position: relative;
+	}
+	&__progress{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		&-back{
+			display: flex;
+			align-items: center;
+	cursor:pointer;
+		position: absolute;
+		left:-30%;
+			font-size: 16px;
+			font-weight: 500;
+			color:black;
+			svg{
+				margin-right: 10px;
+				cursor:pointer;
+			}
+		}
+		.activeStep{
+			background-color: black;
+			border-color: black;
+			p{
+				color:$dark-blue;
+
+			}
+			span{
+				color:$primary;
+				font-size: 26px!important;
+			}
+			&:after{
+				content:"";
+				position: absolute;
+				top:50%;
+				right:-70%;
+				width:32px;
+				height: 3px;
+				background-color: black;
+				z-index: 2;
+			}
+			&:before{
+				background-color: black;
+			}
+		}
+		&-item{
+			width:50px;
+			height: 50px;
+			border-radius: 100%;
+			background-color: transparent;
+			border: 4px solid #A0A0A0;
+			position: relative;
+			&:not(:last-child){
+				margin-right: 116px;
+			}
+			&:first-child{
+				&::before{
+					border-top-left-radius: 5px;
+					border-bottom-left-radius: 5px;
+					width:53px;
+					left:-100%;
+					background-color: black;
+				}
+			
+			}
+			&:last-child{
+				&:after{
+					width:53px;
+					right:-114%;
+					border-top-right-radius: 5px;
+					border-bottom-right-radius: 5px;
+
+				}
+			}
+			&:before{
+				content:"";
+					position: absolute;
+					top:50%;
+					left:-240%;
+					width:116px;
+					height: 3px;
+					background-color: #A0A0A0;
+			}
+		span{
+			position: absolute;
+			top:50%;
+			left:50%;
+			transform: translate(-50%,-50%);
+			font-size: 18px;
+			font-weight: 700;
+			color: #A0A0A0;
+		}
+		p{
+			position: absolute;
+			top:70px;
+			text-align: center;
+			left:-25px;
+			width:100px;
+			font-size: 16px;
+			font-weight: 500;
+			color: #A0A0A0;
+
+		}
+		
+			
+		
+		}
+	}
+	&__section{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		position: relative;
+	}
+	&__form{
+		width:100%;
+		&-extension{
+			margin-right: 12px;
+			background-color: rgba(181, 103, 96, 1);
+			color:white;
+			font-size: 10px;
+			padding:3px;
+			border-radius: 5px;
+
+		}
+		&-input{
+			opacity: 0;
+			height: 0.1px;
+			width: 0.1px;
+			position: absolute;
+			display: block;
+			z-index: 3;
+			cursor: pointer;
+			&-label{
+				color: #A0A0A0;
+				display: block;
+				border-radius: 6px;
+				border: 1px dashed rgba(122, 123, 124, 0.57);
+				cursor: pointer;
+
+				padding:10px 13px;
+				font-weight: 500;
+				font-size: 12px;
+				margin-top: 12px;
+				display: flex;
+				justify-content: space-between;
+svg{
+	width:18px;
+	height: 18px;
+	path{
+		fill: #A0A0A0;;
+	}
+}
+			}
+		}
+		&-double{
+			display: flex;
+			width:100%;
+			margin-top: 12px;
+			div{
+				width:100%;
+			}
+			input{
+				width:86%;
+			}
+		}
+		&-step{
+			display: none;
+			&-active{
+				display: block;
+			}
+		}
+		&-title{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-top: 82px;
+			font-size: 28px;
+			font-weight: 700;
+			color:$dark-blue;
+		
+			span {
+				display: block;
+				color:$primary;
+				margin-left: 10px;
+			}
+			
+
+		}
+		&-subtitle{
+			margin-top: 10px;
+		
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 16px;
+			color:$dark-blue;
+		}	
+		&-wrapper{
+			display: flex;
+			flex-direction: column;
+			width:100%;
+			max-width:504px;
+			margin:0 auto;
+			padding-bottom: 40px;
+			margin-top: 57px;
+			h4{
+				font-size: 26px;
+				margin-bottom: 57px;
+				font-weight: 600;
+				text-align: center;
+			}
+		}
+	}
+}
+.custom-checkbox {
+	position: relative;
+	padding-left: 30px;
+	cursor: pointer;
+	width:55px;
+	display: flex;
+	user-select: none;
+	margin-bottom: 10px;
+	font-size: 12px;
+	&:not(:last-child){
+		margin-right: 15px;
+	}
+  }
+  .longer{
+	width:80px;
+  }
+  .custom-checkbox-wrapper{
+	margin-top: 20px;
+	display: flex;
+	flex-wrap: wrap;
+
+
+  }
+  .custom-checkbox input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+  }
+  
+  .checkmark {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 18px;
+	width: 18px;
+	background-color: #D9D9D9;
+	border-radius: 2px;
+  }
+  
+  .custom-checkbox input:checked + .checkmark {
+	background-color: black;
+  }
+  .add{
+	font-size: 12px;
+	font-weight: 600;
+	text-decoration-line: underline;
+	color:$dark-blue;
+	display:block;
+	cursor:pointer;
+	margin-top: 6px;
+
+  }
+  .css-j204z7-MuiFormControlLabel-root .MuiFormControlLabel-label{
+	font-size: 12px;
+	font-family: '__Montserrat_703af4', '__Montserrat_Fallback_703af4';
+
+  }
+  .small{
+	font-size: 14px!important;
+  }
+  .sf__input{
+	margin-top: 8px;
+	font-weight: normal;
+    font-size: 12px;
+    background: #ffffff;
+    border-radius: 6px;
+    width: 94%;
+    color: #0e0f31;
+    padding: 12px 15px 12px 15px;
+    padding-top: 12px;
+    padding-right: 15px;
+    padding-bottom: 12px;
+    padding-left: 15px;
+    border: 1px solid #9faab7;
+  }

@@ -1,0 +1,72 @@
+import React from "react";
+
+const Badminton = () => {
+  return (
+    <svg
+      width="35"
+      height="34"
+      viewBox="0 0 35 34"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M17.4997 25.5H31.6663V8.5H3.33301V25.5H17.4997ZM17.4997 25.5V19.8333M17.4997 8.5V14.1667"
+        stroke="url(#paint0_linear_604_29970)"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M17.4993 19.8337C19.0642 19.8337 20.3327 18.5651 20.3327 17.0003C20.3327 15.4355 19.0642 14.167 17.4993 14.167C15.9345 14.167 14.666 15.4355 14.666 17.0003C14.666 18.5651 15.9345 19.8337 17.4993 19.8337Z"
+        stroke="url(#paint1_linear_604_29970)"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M8.29134 17.0003C8.29134 17.7518 7.99283 18.4724 7.46148 19.0038C6.93012 19.5351 6.20945 19.8337 5.45801 19.8337H3.33301V14.167H5.45801C6.20945 14.167 6.93012 14.4655 7.46148 14.9969C7.99283 15.5282 8.29134 16.2489 8.29134 17.0003ZM26.708 17.0003C26.708 17.7518 27.0065 18.4724 27.5379 19.0038C28.0692 19.5351 28.7899 19.8337 29.5413 19.8337H31.6663V14.167H29.5413C28.7899 14.167 28.0692 14.4655 27.5379 14.9969C27.0065 15.5282 26.708 16.2489 26.708 17.0003Z"
+        stroke="url(#paint2_linear_604_29970)"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <defs>
+        <linearGradient
+          id="paint0_linear_604_29970"
+          x1="4.32716"
+          y1="5.35463"
+          x2="30.3906"
+          y2="28.1616"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop offset="0.148235" stop-color="#DEB88C" />
+          <stop offset="0.863404" stop-color="#C28456" />
+        </linearGradient>
+        <linearGradient
+          id="paint1_linear_604_29970"
+          x1="14.8648"
+          y1="13.1185"
+          x2="22.0801"
+          y2="16.9068"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop offset="0.148235" stop-color="#DEB88C" />
+          <stop offset="0.863404" stop-color="#C28456" />
+        </linearGradient>
+        <linearGradient
+          id="paint2_linear_604_29970"
+          x1="4.32716"
+          y1="13.1185"
+          x2="10.1589"
+          y2="28.4277"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop offset="0.148235" stop-color="#DEB88C" />
+          <stop offset="0.863404" stop-color="#C28456" />
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+};
+
+export default Badminton;

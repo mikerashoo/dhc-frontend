@@ -1,0 +1,83 @@
+.tabsComponents{
+	
+   
+}
+.tabsList{
+	display: flex;
+	padding:0;
+	position:relative;
+margin-bottom:35px;
+
+	& span{
+		transition: all .3s ease-in-out;
+	font-size: 14px;	
+	cursor: pointer;
+	font-weight: 600;
+	color: #26333D;
+	position: relative;
+	letter-spacing: -0.02em;
+	@media(max-width:500px){
+		font-size: 13px;
+	}
+	
+	}
+}
+.tabListItem{
+	padding: 9px 18px;
+	color:rgba(160, 160, 160, 1);
+	border-radius: 4px;
+border: 1px solid #A0A0A0;
+	// padding-left: 6px;
+	&:not(:last-child){
+		margin-right: 30px;
+	}
+
+
+}
+.activeTabListItem,.tabListItem{
+list-style-type:none ;
+
+
+}
+.activeTabListItem{
+background-color: black;
+
+	position: relative;
+	span{
+		color:white!important;
+	}
+
+}
+.tabsContent{
+	transition: all .3s ease-in-out;
+}
+.differentTabLinks{
+	ol{
+		justify-content: center;
+		padding:20px;
+		background-color: white;
+		border-radius: 6px;
+		li{
+			border:0;
+			font-size: 14px;
+			padding: 0;
+			background-color: transparent;
+
+		}
+	}
+}
+.activeDifferentTabItem{
+	border:0;
+	span{
+		color:#C28456!important;
+	}
+	
+}
+.differentTabsContent{
+	background-color: white;
+	border-radius: 6px;
+	padding:20px 30px;
+}
+.pl{
+	padding-left: 30px;
+}

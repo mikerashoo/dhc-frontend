@@ -1,0 +1,111 @@
+.textArea {
+  font-weight: normal;
+  font-size: 12px;
+  background: #FFFFFF;
+  border-radius: 10px;
+  width: 94%;
+  font-family: "__Montserrat_703af4", "__Montserrat_Fallback_703af4";
+  color: #0E1839;
+  padding: 10px 15px;
+  border: 1px solid #9faab7;
+  resize: none;
+}
+.textArea::-moz-placeholder {
+  color: #BAC0CE;
+}
+.textArea::placeholder {
+  color: #BAC0CE;
+}
+
+@media screen and (max-width: 1200px) {
+  .textArea {
+    padding: 9px 14px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .textArea {
+    padding: 8px 13px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .textArea {
+    padding: 7px 12px;
+  }
+}
+@media screen and (max-width: 645px) {
+  .textArea {
+    padding: 6px 11px;
+    font-size: 13px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .textArea {
+    padding: 5px 10px;
+  }
+} outline: none;
+}
+.input_checkbox {
+  width: auto;
+  margin-right: 20px;
+}
+.input:disabled {
+  color: rgba(0, 0, 0, 0.3);
+}
+.inputIcon {
+  padding-right: 30px;
+}
+.inputIconBg {
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  background: #f69f34;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 6px;
+  border-radius: 50%;
+}
+.inputIconBg svg {
+  width: 14px;
+  height: 14px;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.inputIconBg svg path {
+  stroke: #ffffff;
+}
+.inputIconRight {
+  padding-right: 50px;
+}
+.inputIconLeft {
+  padding-left: 50px;
+}
+.input:focus {
+  border: 1px solid #f69f34;
+}
+.input:focus.input-icon {
+  padding-left: 49px;
+}
+.input::-moz-placeholder {
+  color: #9faab7;
+}
+.input::placeholder {
+  color: #9faab7;
+}
+
+.iconRightPass svg {
+  position: absolute;
+  right: 15;
+  left: auto;
+}ight: 100% !important;
+}
+.bigSlide span {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}

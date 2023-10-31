@@ -1,0 +1,34 @@
+@import "./fonts.scss";
+@import "./global.scss";
+@import "./inputs.scss";
+@import "./filters.scss";
+@import "./_mixins.scss";
+@import "../components/Header/style.scss";
+@import "../components/Form/style.scss";
+@import "../components/Form/Radio/style.scss";
+@import "../components/Form/DatePicker/style.scss";
+
+@import "../components/Form/RadioGroup/style.scss";
+@import "../components/Wrapper/style.scss";
+@import "../components/Backdrop/style.scss";
+@import "../components/Form/FormControl/styles.module.scss";
+@import "../components/Table/style.scss";
+@import "../components/Swiper/style.scss";
+@import "../pages/login/style.scss";
+@import "../components/Accordion/style.scss";
+@import "../components/Form/RadioBox/style.scss";
+@import "../components/NoData/style.scss";
+@import "../components/SideMenu/style.scss";
+
+//pages
+@import "../pages/HomePage/style.scss";
+@import "../pages//Leads/LeadsUsersPage/style.scss";
+@import "../pages//Leads/LeadsUsersPage/style.scss";
+@import '../pages//ProjectsPage/style.scss';
+@import '../pages/ProjectsPage/AddProjectPage/style.scss';
+@import '../pages/ProjectsPage/SingleProjectPage/style.scss';
+@import '../pages/BlogsPage.tsx/style.scss';
+@import '../pages/BlogsPage.tsx/SingleBlogPage/style.scss';
+@import '../pages/SubAdminPage/style.scss';
+@import '../pages/CustomersPage/style.scss'
+

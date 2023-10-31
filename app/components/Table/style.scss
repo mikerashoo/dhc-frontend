@@ -1,0 +1,249 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  thead{
+	td{
+		font-size: 12px;
+	}
+  }
+  td {
+    padding: 22px 10px;
+    font-size: 14px;
+    border-top: none;
+    border-collapse: collapse;
+    border-spacing: 0;
+	span{
+		display: flex;
+		align-items: center;
+		svg{
+			margin-right: 10px;
+		}
+	}
+  }
+  &__empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px 30px;
+  }
+  &__wrapper {
+    // max-width: 1400px;
+    @include horizontalScroll;
+  }
+  tr td:last-child {
+    text-align: right;
+  }
+
+  &-flex {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+}
+.table_link {
+//   color: ;
+  text-decoration: none;
+  &:hover {
+    // color: ;
+    text-decoration: none;
+  }
+}
+.bold {
+  font-weight: 700;
+}
+
+.thead {
+//   border-bottom: 1px solid $stroke;
+  & td{
+	padding-top: 0;
+  }
+  & td span {
+    // color: $gray;
+    // text-transform: uppercase;
+  }
+}
+.tbody {
+  & td {
+    // border-bottom: 1px dashed $stroke;
+  }
+}
+.table__column--details {
+  display: flex;
+  gap: 30px;
+  & div {
+    & h5 {
+      font-weight: 600px;
+      font-size: 14px;
+      line-height: 1.2;
+    }
+    & p {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.2;
+    }
+  }
+}
+.pagination {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  &ItemsPerPage {
+    display: flex;
+    margin-right: 25px;
+    color: rgba(43, 47, 51, 0.5);
+    & span {
+    //   color: ;
+      padding: 10px;
+    //   border: 1px solid $gray-light;
+      border-radius: 5px;
+    }
+    div {
+      cursor: pointer;
+      position: relative;
+      margin-left: 10px;
+    }
+    svg {
+      width: 20px;
+      height: 20px;
+      transform: rotate(270deg);
+      transition: var(--transition);
+    }
+  }
+  &CurrentPage {
+    margin-right: 25px;
+  }
+  &Controls {
+    button {
+      outline: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      &:disabled {
+        svg {
+          path {
+            // fill: $gray;
+          }
+        }
+      }
+    }
+  }
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.dropdown {
+//   box-shadow: $shadow;
+  visibility: hidden;
+  opacity: 0;
+//   transition: $transition;
+  flex-direction: column;
+  position: absolute;
+  margin: 0;
+  list-style-type: none;
+  top: 0;
+  right: 0;
+  z-index: 2;
+//   background-color: $white;
+//   box-shadow: $shadow;
+  border-radius: 10px;
+  padding: 0;
+  li {
+    padding: 10px 15px;
+    font-size: 14px;
+    // transition: $transition;
+    &:hover {
+      background-color: darken(#fff, 10);
+      // border-radius: 10px;
+    }
+    &:first-of-type:hover {
+      border-radius: 10px 10px 0 0;
+    }
+    &:last-of-type:hover {
+      border-radius: 0 0 10px 10px;
+    }
+  }
+}
+
+.dropdownOpen {
+  svg {
+    transform: rotate(90deg);
+  }
+  .dropdown {
+    visibility: visible;
+    opacity: 1;
+    top: 37px;
+  }
+}
+
+.sort-column {
+//   transition: $transition;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  & svg {
+    opacity: 0;
+    width: 12px;
+    min-width: 12px;
+    // transition: $transition;
+    visibility: hidden;
+    & path {
+    //   transition: $transition;
+    //   stroke: $gray;
+    }
+  }
+  &-desc {
+    & svg {
+      transform: rotate(180deg);
+    }
+  }
+  &:hover {
+    // color: ;
+    & svg {
+      opacity: 1;
+      visibility: visible;
+      & path {
+        // stroke: ;
+      }
+    }
+  }
+}
+
+.thead tr td .sort-column-active {
+//   color: ;
+  & svg {
+    opacity: 1;
+    visibility: visible;
+    & path {
+    //   stroke: ;
+    }
+  }
+}
+.pagination__wrapper {
+  border-bottom: none !important;
+}
+.t-head-border {
+  & td {
+    // border: 1px solid $gray;
+  }
+}
+.no-data__table {
+  width: 100%;
+  position: relative;
+  height: 50vh;
+}
+.thead__gray{
+	thead{
+		td{
+			color: var(--dark-blue, #061426);
+		}
+	}
+
+}
+.table__wrapper{
+	height: 100%;
+}

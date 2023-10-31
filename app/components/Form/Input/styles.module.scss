@@ -1,0 +1,107 @@
+.input {
+  font-weight: normal;
+  font-size: 12px;
+  background: #ffffff;
+  font-family: '__Montserrat_703af4', '__Montserrat_Fallback_703af4';
+
+  border-radius: 6px;
+  width: 94%;
+  color: #0e0f31;
+  padding: 12px 15px 12px 15px;
+  border: 1px solid #9faab7;
+  &Group {
+    position: relative;
+    svg {
+      right: 15px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    &Left {
+      svg {
+        left: 15px;
+      }
+    }
+  }
+  &_underline {
+    border: 1px solid transparent;
+    border-bottom: 1px solid rgba(51, 51, 51, 0.2);
+    border-radius: 0;
+    background: transparent;
+    padding: 12px 0;
+    &:focus {
+      border-bottom: 1px #6eb63c solid;
+      outline: none;
+    }
+  }
+  &_rounded {
+    border-radius: 60px;
+    background: transparent;
+    padding: 15px 0;
+    &:focus {
+      outline: none;
+    }
+  }
+  &_checkbox {
+    width: auto;
+    margin-right: 20px;
+  }
+  &:disabled {
+    color: rgba(0, 0, 0, 0.3);
+  }
+  &Icon {
+    padding-right: 30px;
+
+    &Bg {
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      position: absolute;
+      width: 26px;
+      height: 26px;
+
+      background: #f69f34;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 6px;
+      border-radius: 50%;
+      & svg {
+        // position: relative;
+        width: 14px;
+        height: 14px;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        & path {
+          stroke: #ffffff;
+        }
+      }
+    }
+    &Right {
+      padding-right: 50px;
+    }
+    &Left {
+      padding-left: 50px;
+    }
+  }
+  &:focus {
+    border: 1px solid #f69f34;
+
+    &.input-icon {
+      padding-left: 49px;
+    }
+  }
+  &::placeholder {
+    color: #9faab7;
+  }
+}
+
+.iconRightPass {
+  & svg {
+    position: absolute;
+    right: 15;
+    left: auto;
+  }
+}

@@ -1,0 +1,27 @@
+@mixin horizontalScroll {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  &::-webkit-scrollbar {
+    height: 4px;
+  } /* Track */
+  &::-webkit-scrollbar-track {
+    background: #838383;
+  }
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+  
+  }
+}
+@mixin VerticalScroll {
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    width: 2px;
+  } /* Track */
+  &::-webkit-scrollbar-track {
+    background: #838383;
+  }
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+   
+  }
+}
