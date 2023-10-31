@@ -59,7 +59,7 @@ const LoginPage = () => {
         <>
             {isLoading && <Preloader />}
 
-            <div className="login">
+            <div className="login p-4">
                 <div className="login__wrapper">
                     <h1>Autorization</h1>
 
