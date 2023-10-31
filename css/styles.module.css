@@ -40,9 +40,7 @@
 }
 @media screen and (max-width: 576px) {
   .textArea {
-    padding: 5px 10px;
-  }
-} outline: none;
+    padding: 5px 10px; outline: none;
 }
 .input_checkbox {
   width: auto;
@@ -102,10 +100,11 @@
   position: absolute;
   right: 15;
   left: auto;
-}ight: 100% !important;
+right: 100% !important;
 }
 .bigSlide span {
   display: flex;
   width: 100%;
   justify-content: center;
+}
 }
