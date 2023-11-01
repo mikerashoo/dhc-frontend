@@ -9,6 +9,7 @@ import router, { useRouter } from "next/router";
 import { LocalStorageHandler } from "../app/utils/localStorageHandler";
 import { AuthService } from "../app/services/AuthService";
 import { AuthContext } from "@/app/context/auth";
+import { SideBarProvider } from "@/app/context/sidebar";
 
 function MyApp({ Component, pageProps }: AppProps) {
     const { isLoading, setIsLoading } = useLoading();
@@ -44,15 +45,17 @@ function MyApp({ Component, pageProps }: AppProps) {
 
     return (
         <LoadingContext.Provider value={{ isLoading, setIsLoading }}>
-            <AuthContext.Provider
-                value={{
-                    userInfo,
-                    isAuth,
-                    setIsAuth,
-                }}
-            >
-                <Component {...pageProps} />
-            </AuthContext.Provider>
+            <SideBarProvider>
+                <AuthContext.Provider
+                    value={{
+                        userInfo,
+                        isAuth,
+                        setIsAuth,
+                    }}
+                >
+                    <Component {...pageProps} />
+                </AuthContext.Provider>
+            </SideBarProvider>
         </LoadingContext.Provider>
     );
 }

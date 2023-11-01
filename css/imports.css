@@ -764,9 +764,9 @@ h1, h2, h3, h4, h5 {
 }
 
 .sidemenu {
-  width: 300px; /* 70px - сумма левого и правого паддингов */
+  /* width: 300px; 70px - сумма левого и правого паддингов */
   border-radius: 0px 10px 10px 0px;
-  position: fixed;
+  /* position: fixed; */
   padding: 35px 35px 0px 37px;
   background-color: var(--dark-blue, #061426);
   height: 100vh;
