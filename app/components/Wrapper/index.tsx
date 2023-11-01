@@ -44,9 +44,9 @@ const Wrapper: React.FC<Props> = ({ children, title, user, breadscrumbs }) => {
             </Head>
             {isLoading && <Preloader />}
 
-            <div className="flex w-full h-full">
+            <div className="flex w-full auto-rows-max h-full">
                 <SideBar />
-                <div className="w-full">
+                <div className="w-full h-full">
                     <Header />
                     <div className="">
                         <div

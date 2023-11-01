@@ -5,7 +5,7 @@ import SideMenu from "./SideMenu";
 
 function SideBar() {
     return (
-        <div className="">
+        <div className="h-full">
             <div className="block flex-none h-full md:hidden ">
                 <MobileSideBar />
             </div>
