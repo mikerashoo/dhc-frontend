@@ -2357,14 +2357,14 @@ h1, h2, h3, h4, h5 {
   margin-right: 6px;
 }
 .section__header-search input {
-  width: 244px;
+  /* width: 244px; */
   padding: 11px 10px 11px 45px;
   border-radius: 4px;
   outline: 0;
   border: 1px solid black;
   font-size: 12px;
   font-weight: 500;
-  max-width: 244px;
+  /* max-width: 244px; */
 }
 .section__header-search input::-moz-placeholder {
   font-size: 12px;
