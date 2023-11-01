@@ -9,35 +9,35 @@ import { HomeService } from "@/app/services/HomeService";
 import Preloader from "@/app/components/Preloader/Preloader";
 
 const HomePage = () => {
-  const { isLoading, setIsLoading } = useLoadingContext();
-  const [data, setData] = React.useState<any>();
-  React.useEffect(() => {
-    setIsLoading(true);
-    HomeService.getHome()
-      .then((res) => setData(res.data.Details))
-      .catch((err) => console.log(err.message))
-      .finally(() => setIsLoading(false));
-  }, []);
-  if (!data) return <Preloader />;
-  return (
-    <div className="home">
-      <HomeHeader />
-      <div className="home__wrapper">
-        <div className="home__left">
-          <Cards
-            Users={data.Users}
-            Managers={data.Managers}
-            Leads={data.Leads}
-          />
-          <LeadTable table={data["Today Leads"]} />
+    const { isLoading, setIsLoading } = useLoadingContext();
+    const [data, setData] = React.useState<any>();
+    React.useEffect(() => {
+        setIsLoading(true);
+        HomeService.getHome()
+            .then((res) => setData(res.data.Details))
+            .catch((err) => console.log(err.message))
+            .finally(() => setIsLoading(false));
+    }, []);
+    if (!data) return <Preloader />;
+    return (
+        <div className="home">
+            <HomeHeader />
+            <div className="home__wrapper flex flex-wrap md:flex-nowrap">
+                <div className="home__left w-full">
+                    <Cards
+                        Users={data.Users}
+                        Managers={data.Managers}
+                        Leads={data.Leads}
+                    />
+                    <LeadTable table={data["Today Leads"]} />
+                </div>
+                <div className="home__right w-full">
+                    {/* <Statistics /> */}
+                    <Lists blogs={data.LiveBlogs} projects={data.Projects} />
+                </div>
+            </div>
         </div>
-        <div className="home__right">
-          {/* <Statistics /> */}
-          <Lists blogs={data.LiveBlogs} projects={data.Projects} />
-        </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default HomePage;
