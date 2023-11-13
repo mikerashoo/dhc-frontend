@@ -21,6 +21,12 @@ import Jogging from "@/app/icons/Jogging";
 import Reserved from "@/app/icons/Reserved";
 import { useLoadingContext } from "@/app/context/loading";
 import { ProjectsService } from "@/app/services/Projects.service";
+import {
+    FormControl,
+    FormControlLabel,
+    FormGroup,
+    Switch,
+} from "@mui/material";
 type Props = {
     el: any;
     type: string;
@@ -55,6 +61,48 @@ const ProjectItem: FC<Props> = ({ el, type }) => {
             .catch((err) => console.log(err))
             .finally(() => setIsLoading(false));
     };
+
+    const handleIsFeaturedChange = (
+        event: React.ChangeEvent<HTMLInputElement>
+    ) => {
+        event.preventDefault();
+
+        const value = event.target.checked;
+        setIsLoading(true);
+        ProjectsService.updateStatus({
+            id: el.id,
+            type: "isFeatured",
+            status: value,
+        })
+            .then((ress) => {
+                console.log("Response", ress);
+                router.reload();
+            })
+            .catch((err) => console.log(err))
+            .finally(() => setIsLoading(false));
+        console.log(value);
+    };
+
+    const handleIsTrendingChange = (
+        event: React.ChangeEvent<HTMLInputElement>
+    ) => {
+        event.preventDefault();
+        const value = event.target.checked;
+        setIsLoading(true);
+        ProjectsService.updateStatus({
+            id: el.id,
+            type: "isTranding",
+            status: value,
+        })
+            .then((ress) => {
+                router.reload();
+            })
+            .catch((err) => console.log(err))
+            .finally(() => setIsLoading(false));
+        console.log(value);
+    };
+
+    console.log("Project", el);
     return (
         <div className="project__item flex flex-wrap md:flex-nowrap gap-2">
             <div className="project__item-card flex flex-wrap md:flex-nowrap items-center">
@@ -155,6 +203,30 @@ const ProjectItem: FC<Props> = ({ el, type }) => {
                                 <Denied /> Rejected
                             </div>
                         ) : null}
+                        <FormControl component="fieldset" variant="standard">
+                            <FormGroup>
+                                <FormControlLabel
+                                    control={
+                                        <Switch
+                                            checked={el.isFeatured}
+                                            onChange={handleIsFeaturedChange}
+                                        />
+                                    }
+                                    label="Featured"
+                                />
+
+                                <FormControlLabel
+                                    control={
+                                        <Switch
+                                            checked={el.isTranding}
+                                            onChange={handleIsTrendingChange}
+                                            name="isTrending"
+                                        />
+                                    }
+                                    label="Trending"
+                                />
+                            </FormGroup>
+                        </FormControl>
                         {type === "our" && (
                             <div>
                                 <div className="project__item-our-right">{`EMI starts at ${el.EMI}`}</div>

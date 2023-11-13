@@ -1,23 +1,28 @@
 import http from "../utils/http";
 const getProjects = () => {
-  return http.get("getProjectListing.php");
+    return http.get("getProjectListing.php");
 };
 const getSingleProject = (id: string) => {
-  return http.get(`getProjectDetails.php?id=${id}`);
+    return http.get(`getProjectDetails.php?id=${id}`);
 };
 const createProject = (data: any) => {
-  return http.post("listProjects.php", data);
+    return http.post("listProjects.php", data);
 };
 const updateBrouchere = (data: any) => {
-  return http.post("updateBVT.php", data);
+    return http.post("updateBVT.php", data);
 };
 const changeStatus = (data: any) => {
-  return http.post("changeProjectStatus.php", data);
+    return http.post("changeProjectStatus.php", data);
+};
+
+const updateStatus = (data: any) => {
+    return http.post("updateStatus.php", data);
 };
 export const ProjectsService = {
-  getProjects,
-  getSingleProject,
-  createProject,
-  updateBrouchere,
-  changeStatus,
+    getProjects,
+    getSingleProject,
+    createProject,
+    updateBrouchere,
+    changeStatus,
+    updateStatus,
 };
