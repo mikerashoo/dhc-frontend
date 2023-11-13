@@ -56,7 +56,7 @@ const ProjectItem: FC<Props> = ({ el, type }) => {
             .finally(() => setIsLoading(false));
     };
     return (
-        <div className="project__item">
+        <div className="project__item flex flex-wrap md:flex-nowrap gap-2">
             <div className="project__item-card flex flex-wrap md:flex-nowrap items-center">
                 <div
                     className={`w-full project__item-card-img ${
@@ -128,7 +128,7 @@ const ProjectItem: FC<Props> = ({ el, type }) => {
                     >
                         <span>{el.budget}</span>
                         {type === "default" && el.status === "Pending" ? (
-                            <div className="project__item-btns">
+                            <div className="project__item-btns flex gap-2">
                                 <button
                                     onClick={(e) =>
                                         changeStatus("Approved", el.id, e)
@@ -176,7 +176,7 @@ const ProjectItem: FC<Props> = ({ el, type }) => {
                 </div>
             </div>
             {type === "default" ? (
-                <div className="project__item-manager">
+                <div className="project__item-manager w-full md:w-auto">
                     <span className="project__item-manager-name">
                         Manager Name
                     </span>
