@@ -10,15 +10,17 @@ import Plan from "./Plan";
 import Amenties from "./Amenties";
 import About from "./About";
 import ProjectMap from "./ProjectMap";
-import Preloader from "@/app/components/Preloader/Preloader";
 import { useLoadingContext } from "@/app/context/loading";
+import FormControl from "@/app/components/Form/FormControl";
+import FormErrorMessage from "@/app/components/Form/FormErrorMessage";
+import Input from "@/app/components/Form/Input";
 import {
   displayErrorMessage,
   displaySuccessMessage,
   uploadImages,
 } from "@/app/utils/helpers";
 import { ProjectsService } from "@/app/services/Projects.service";
-import { useRouter } from "next/router";
+import { useRouter } from "next/router"; 
 const images = [
   "/assets/images/g1.png",
   "/assets/images/g2.png",
@@ -33,6 +35,8 @@ const images = [
 ];
 const SingleProjectPage = ({ data }: any) => {
   const router = useRouter();
+  const [tourUrl, setTourUrl] = useState<string | null>(data.tourUrl);
+  const [tourUrlError, setTourUrlError] = useState<string>();
   const [selectedFile, setSelectedFile] = useState<any>();
   const [fileUploaded, setFileUploaded] = useState(false);
   const { isLoading, setIsLoading } = useLoadingContext();
@@ -54,15 +58,17 @@ const SingleProjectPage = ({ data }: any) => {
     setFileUploaded(false);
   };
 
-
   const handleExistingFileDelete = () => {
     setIsLoading(true);
 
     formData.projectID = data.id;
     formData.brochureUrl = "Delete";
-    formData.tourUrl = "Empty";
+    formData.tourUrl = data.tourUrl ?? "Default";
     ProjectsService.updateBrouchere(formData)
-      .then((res) => {displaySuccessMessage(res.data.message); router.reload()})
+      .then((res) => {
+        displaySuccessMessage(res.data.message);
+        router.reload();
+      })
       .catch((err) => console.log(err))
       .finally(() => setIsLoading(false));
   };
@@ -76,9 +82,12 @@ const SingleProjectPage = ({ data }: any) => {
     const imageUrl = await uploadImages([selectedFile]);
     formData.projectID = data.id;
     formData.brochureUrl = imageUrl[0];
-    formData.tourUrl = "Empty";
+    formData.tourUrl = data.tourUrl ?? "Default";
     ProjectsService.updateBrouchere(formData)
-      .then((res) =>  {displaySuccessMessage(res.data.message); router.reload()})
+      .then((res) => {
+        displaySuccessMessage(res.data.message);
+        router.reload();
+      })
       .catch((err) => console.log(err))
       .finally(() => setIsLoading(false));
   };
@@ -92,14 +101,58 @@ const SingleProjectPage = ({ data }: any) => {
   };
 
   const getFileNameFromUrl = (url: string | null) => {
-    if(url == null) return null;
+    if (url == null) return null;
     const parsedUrl = new URL(url);
     const path = parsedUrl.pathname;
-    const parts = path.split('/');
+    const parts = path.split("/");
     const fileName = parts[parts.length - 1];
-  
+
     // Decode any percent-encoded characters in the file name
     return decodeURIComponent(fileName);
+  };
+  const validateLink = (link: string) => {
+	const youtubeRegex = /^(https?:\/\/)?(www\.)?(youtube\.com\/(.*\/)?|(youtu\.be\/|youtube\.com\/embed\/|youtube\.com\/v\/|youtube\.com\/e\/|youtube\.com\/c\/|youtube\.com\/channel\/|youtube\.com\/user\/|youtube\.com\/watch\?v=))([^#\&\?]*).*/;
+
+	// Check if the link matches the regex pattern
+	return youtubeRegex.test(link);
+  };
+  const onTourUrlSubmit = () => {
+	console.log("Tour url on submit", tourUrl);
+	if(tourUrl){
+		if(validateLink(tourUrl)){
+			setIsLoading(true);
+			 
+			formData.projectID = data.id;
+			formData.brochureUrl = "Default";
+			formData.tourUrl = tourUrl;
+			ProjectsService.updateBrouchere(formData)
+			  .then((res) => {
+				displaySuccessMessage(res.data.message);
+				router.reload();
+			  })
+			  .catch((err) => console.log(err))
+			  .finally(() => setIsLoading(false));
+		}
+		else {
+			setTourUrlError("Invalid link")
+		}
+	}else {
+		console.log("Defaultyyyyy");
+
+		setIsLoading(true);
+			 
+			formData.projectID = data.id;
+			formData.brochureUrl = "Default";
+			formData.tourUrl = "Delete";
+			ProjectsService.updateBrouchere(formData)
+			  .then((res) => {
+				displaySuccessMessage(res.data.message);
+				router.reload();
+			  })
+			  .catch((err) => console.log(err))
+			  .finally(() => setIsLoading(false));
+	}
+	
   }
   return (
     <section className="section">
@@ -132,7 +185,7 @@ const SingleProjectPage = ({ data }: any) => {
                   )}
                   {getFileLabel()}
                 </label>
-               
+
                 <button
                   style={{ marginTop: "10px" }}
                   onClick={() => upload()}
@@ -141,23 +194,17 @@ const SingleProjectPage = ({ data }: any) => {
                   update brochure
                 </button>
 
+                {data.brochureUrl && (
+                  <div className="">
+                    <p className="flex flex-row border p-2 my-2 no-space gap-4">
+                      <span onClick={(e) => handleExistingFileDelete()}>
+                        <Delete />
+                      </span>
 
-                {
-                  data.brochureUrl && <div className="">
-                       <p
-                  className="flex flex-row border p-2 my-2 no-space gap-4"
-                  
-                > 
-                    <span onClick={(e) => handleExistingFileDelete()}>
-                      <Delete /> 
-                    </span>
-                  
-                  {getFileNameFromUrl(data.brochureUrl)}
-                </p>
+                      {getFileNameFromUrl(data.brochureUrl)}
+                    </p>
                   </div>
-                 
-                }
-
+                )}
               </div>
             </div>
           </div>
@@ -167,6 +214,25 @@ const SingleProjectPage = ({ data }: any) => {
           {data.FloorPlans && <Plan data={data.FloorPlans} />}
           <Amenties amenties={data.amenities} />
           <About data={data} />
+          <div className="px-8">
+		  <div className="sproject__about-title">
+			
+              Virtual Link
+            </div>
+			<form  className="sblog__form" onSubmit={(e) => {e.preventDefault(); onTourUrlSubmit()}}>
+            <FormControl>
+              <Input
+                className="youtube__input"
+                placeholder="Youtube Video Link"
+				value={tourUrl ?? ''}
+				onChange={(e) => setTourUrl(e.target.value)}
+              />
+              <FormErrorMessage>
+				{tourUrlError && tourUrlError}
+			  </FormErrorMessage>
+            </FormControl>
+			</form>
+          </div>
           <ProjectMap locationLink={data.LocationLink} />
         </div>
       </div>
