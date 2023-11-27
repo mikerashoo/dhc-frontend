@@ -53,6 +53,19 @@ const SingleProjectPage = ({ data }: any) => {
     setSelectedFile(null);
     setFileUploaded(false);
   };
+
+
+  const handleExistingFileDelete = () => {
+    setIsLoading(true);
+
+    formData.projectID = data.id;
+    formData.brochureUrl = "Delete";
+    formData.tourUrl = "Empty";
+    ProjectsService.updateBrouchere(formData)
+      .then((res) => {displaySuccessMessage(res.data.message); router.reload()})
+      .catch((err) => console.log(err))
+      .finally(() => setIsLoading(false));
+  };
   const upload = async () => {
     setIsLoading(true);
     if (!selectedFile) {
@@ -65,7 +78,7 @@ const SingleProjectPage = ({ data }: any) => {
     formData.brochureUrl = imageUrl[0];
     formData.tourUrl = "Empty";
     ProjectsService.updateBrouchere(formData)
-      .then((res) => displaySuccessMessage(res.data.message))
+      .then((res) =>  {displaySuccessMessage(res.data.message); router.reload()})
       .catch((err) => console.log(err))
       .finally(() => setIsLoading(false));
   };
@@ -77,6 +90,17 @@ const SingleProjectPage = ({ data }: any) => {
       .catch((err) => console.log(err))
       .finally(() => setIsLoading(false));
   };
+
+  const getFileNameFromUrl = (url: string | null) => {
+    if(url == null) return null;
+    const parsedUrl = new URL(url);
+    const path = parsedUrl.pathname;
+    const parts = path.split('/');
+    const fileName = parts[parts.length - 1];
+  
+    // Decode any percent-encoded characters in the file name
+    return decodeURIComponent(fileName);
+  }
   return (
     <section className="section">
       <div className="section__content">
@@ -108,6 +132,7 @@ const SingleProjectPage = ({ data }: any) => {
                   )}
                   {getFileLabel()}
                 </label>
+               
                 <button
                   style={{ marginTop: "10px" }}
                   onClick={() => upload()}
@@ -115,6 +140,24 @@ const SingleProjectPage = ({ data }: any) => {
                 >
                   update brochure
                 </button>
+
+
+                {
+                  data.brochureUrl && <div className="">
+                       <p
+                  className="flex flex-row border p-2 my-2 no-space gap-4"
+                  
+                > 
+                    <span onClick={(e) => handleExistingFileDelete()}>
+                      <Delete /> 
+                    </span>
+                  
+                  {getFileNameFromUrl(data.brochureUrl)}
+                </p>
+                  </div>
+                 
+                }
+
               </div>
             </div>
           </div>
